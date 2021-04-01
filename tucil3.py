@@ -1,5 +1,10 @@
-from prioqueue import PrioQueue
+#Tucil Stima 3
 
+#Girvin Junod 13519096 K02
+#
+
+from prioqueue import PrioQueue
+from vgraf import GraphVisualization
 def euclideanDistance(a, b):
     return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**0.5
     
@@ -46,15 +51,10 @@ matrixgeo = [
 '''
 
 #input file
+'''
 #nanti diganti jadi parse dari file
 #koordinat tiap simpul
 listkoordinat = [(0,0), (3,4), (3,0), (11,4), (11,-6)] 
-n = len(listkoordinat)
-#matrix buat jarak eclidean
-matrixgeo = [[0 for j in range(n)] for i in range(n)]
-for i in range(n):
-    for j in range(n):
-        matrixgeo[i][j] = euclideanDistance(listkoordinat[i], listkoordinat[j])
 #matrix adj
 matrixjalan = [ #blom ada handle kasus g ada jalan
 [0,1,1,0,0],
@@ -63,6 +63,39 @@ matrixjalan = [ #blom ada handle kasus g ada jalan
 [0,1,0,0,1],
 [0,0,1,1,0]
 ]
+#nama simpul
+nama = ['A', 'B', 'C', 'D', 'E']
+'''
+namafile = "tes.txt"
+f = open(namafile) #baca soal
+read = f.read().split('\n') #dipisahkan dari newline
+listkoordinat = []
+nama = []
+matrixjalan = []
+#liat format di txt
+for i in range(len(read)):
+    if ("=" in read[i]):
+        nexti = i+1
+        break
+    idxpostnama = read[i].index("-")
+    nama.append(read[i][0:idxpostnama-1])
+    read[i] = read[i].replace(" ", "") #hapus spasi
+    idxpostnama = read[i].index("-") + 1
+    read[i] = read[i][idxpostnama:]
+    templist = read[i].split(",")
+    listkoordinat.append((float(templist[0]), float(templist[1])))
+for i in range(nexti, len(read)):
+    templist = read[i].split(" ")
+    for j in range(len(templist)):
+        templist[j] = int(templist[j])
+    matrixjalan.append(templist)
+n = len(listkoordinat)
+#matrix buat jarak eclidean
+matrixgeo = [[0 for j in range(n)] for i in range(n)]
+for i in range(n):
+    for j in range(n):
+        matrixgeo[i][j] = euclideanDistance(listkoordinat[i], listkoordinat[j])
+
 #nama jalan, klo cukup nampilin node aj buang aj
 matrixnama = [
 ["-","AB","AC","AD","AE"], #0
@@ -71,11 +104,8 @@ matrixnama = [
 ["DA","DB","DC","-","DE"], #3
 ["EA","EB","EC","ED","-"] #4
 ]
-#nama simpul
-nama = ['A', 'B', 'C', 'D', 'E']
 
 #Mulai program
-
 
 #list[prediksi, sejauhini, path, nama]
 '''tes = PrioQueue()
@@ -85,6 +115,16 @@ tes.enqueue([150,100,['a','e','f'], 'f'])
 tes.enqueue([225,75,['a','e','z'], 'z'])	
 while not tes.isEmpty():
 	print(tes.dequeue())'''
+
+
+#coba2 gambar graf
+#Gambar graf
+graf = GraphVisualization()
+for i in range(n):
+    for j in range(n):
+        if (matrixjalan[i][j]):
+            graf.addEdge(nama[i], nama[j], matrixgeo[i][j])
+graf.visualize()
 
 #input node awal dan akhir
 print("Pilihan Node: ")
@@ -142,3 +182,4 @@ for i in range(len(hasil) - 1):
     print(matrixnama[ka][kb], end = "-")
 print(hasil[i+1])
 print("Panjang jalur:" , distance)
+graf.keep()
