@@ -5,50 +5,9 @@
 
 from prioqueue import PrioQueue
 from vgraf import GraphVisualization
+
 def euclideanDistance(a, b):
     return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**0.5
-    
-#20x20, diambil dari ppt
-#lanjutin aja klo mau tes
-'''matrixjalan = [
-[1,2,3], #Arad
-[1,6,7], #Zerind
-[6,9], #Oradea
-[], #Sibiu
-[], #Fagaras
-[], #Timiscara
-[], #Lugoj
-[], #Mehadia
-[], #Dobreta
-[], #Cralova
-[], #Riminu vicea
-[], #Pitesti
-[], #Bucharest
-[], #Giurgiu
-[], #Urziceni
-[], #Neamt
-[], #Iasi
-[], #Vasiui
-[], #Hirsova
-[] #Evorie
-]'''
-
-'''
-matrixjalan = [ #weighted adj matrix
-[0,2,3,0,0],
-[2,0,15,2,0],
-[3,15,0,0,13],
-[0,2,0,0,9],
-[0,0,13,9,0]
-]
-matrixgeo = [
-[0,2,3,3,14], #0
-[2,0,15,2,9.5], #1
-[3,15,0,16,13], #2
-[3,2,16,0,9], #3
-[14,9.5,13,9,0] #4
-]
-'''
 
 #input file
 '''
@@ -65,8 +24,17 @@ matrixjalan = [ #blom ada handle kasus g ada jalan
 ]
 #nama simpul
 nama = ['A', 'B', 'C', 'D', 'E']
+
+#nama jalan, klo cukup nampilin node aj buang aj
+matrixnama = [
+["-","AB","AC","AD","AE"], #0
+["BA","-","BC","BD","BE"], #1
+["CA","CB","-","CD","CE"], #2
+["DA","DB","DC","-","DE"], #3
+["EA","EB","EC","ED","-"] #4
+]
 '''
-namafile = "tes.txt"
+namafile = input("Nama file: ")
 f = open(namafile) #baca soal
 read = f.read().split('\n') #dipisahkan dari newline
 listkoordinat = []
@@ -96,26 +64,7 @@ for i in range(n):
     for j in range(n):
         matrixgeo[i][j] = euclideanDistance(listkoordinat[i], listkoordinat[j])
 
-#nama jalan, klo cukup nampilin node aj buang aj
-matrixnama = [
-["-","AB","AC","AD","AE"], #0
-["BA","-","BC","BD","BE"], #1
-["CA","CB","-","CD","CE"], #2
-["DA","DB","DC","-","DE"], #3
-["EA","EB","EC","ED","-"] #4
-]
-
-#Mulai program
-
 #list[prediksi, sejauhini, path, nama]
-'''tes = PrioQueue()
-tes.enqueue([200,100,['a','b','c'], 'c'])
-tes.enqueue([255,135,['a','b','d'], 'd'])
-tes.enqueue([150,100,['a','e','f'], 'f'])
-tes.enqueue([225,75,['a','e','z'], 'z'])	
-while not tes.isEmpty():
-	print(tes.dequeue())'''
-
 
 #coba2 gambar graf
 #Gambar graf
@@ -140,6 +89,7 @@ while(1):
     else:
         break
 
+#Mulai algo
 kawal = nama.index(entry)
 ktujuan = nama.index(target)
 awal = [matrixgeo[kawal][ktujuan] ,0, [entry], entry]
@@ -162,6 +112,7 @@ while not listjalan.isEmpty():
             listjalan.enqueue(grup)
 hasil = popped[2]
 distance = popped[1]
+
 #output dari node ke node
 print("Jalur (node):")
 for i in hasil:
@@ -169,8 +120,9 @@ for i in hasil:
         print(i)
     else:
         print(i, end = "-")
-print("Panjang jalur:" , distance)
-#output node-sisi-node-dst
+print("Panjang jalur:" , '{0:.3g}'.format(distance))
+
+'''#output node-sisi-node-dst
 print()
 print("Jalur (jalan + node):")
 for i in range(len(hasil) - 1):
@@ -181,5 +133,6 @@ for i in range(len(hasil) - 1):
     kb = nama.index(b)
     print(matrixnama[ka][kb], end = "-")
 print(hasil[i+1])
-print("Panjang jalur:" , distance)
+print("Panjang jalur:" , distance)'''
+
 graf.keep()
