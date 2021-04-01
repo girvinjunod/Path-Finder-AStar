@@ -56,7 +56,7 @@ for i in range(n):
     for j in range(n):
         matrixgeo[i][j] = euclideanDistance(listkoordinat[i], listkoordinat[j])
 #matrix adj
-matrixjalan = [ 
+matrixjalan = [ #blom ada handle kasus g ada jalan
 [0,1,1,0,0],
 [1,0,1,1,0],
 [1,1,0,0,1],
@@ -85,8 +85,21 @@ tes.enqueue([150,100,['a','e','f'], 'f'])
 tes.enqueue([225,75,['a','e','z'], 'z'])	
 while not tes.isEmpty():
 	print(tes.dequeue())'''
-entry = 'A'
-target = 'E'
+
+#input node awal dan akhir
+print("Pilihan Node: ")
+for i in nama:
+    print(i, end=" ")
+print()
+while(1):
+    entry = input("Masukkan node awal: ")
+    target = input("Masukkan node target: ")
+    if (entry not in nama or target not in nama):
+        print("input invalid, please try again")
+        print()
+    else:
+        break
+
 kawal = nama.index(entry)
 ktujuan = nama.index(target)
 awal = [matrixgeo[kawal][ktujuan] ,0, [entry], entry]
@@ -108,6 +121,7 @@ while not listjalan.isEmpty():
             grup = [matrixgeo[i][ktujuan] + sofar, sofar, isipath, nama[i]]
             listjalan.enqueue(grup)
 hasil = popped[2]
+distance = popped[1]
 #output dari node ke node
 print("Jalur (node):")
 for i in hasil:
@@ -115,7 +129,9 @@ for i in hasil:
         print(i)
     else:
         print(i, end = "-")
+print("Panjang jalur:" , distance)
 #output node-sisi-node-dst
+print()
 print("Jalur (jalan + node):")
 for i in range(len(hasil) - 1):
     print(hasil[i], end= "-")
@@ -125,3 +141,4 @@ for i in range(len(hasil) - 1):
     kb = nama.index(b)
     print(matrixnama[ka][kb], end = "-")
 print(hasil[i+1])
+print("Panjang jalur:" , distance)
