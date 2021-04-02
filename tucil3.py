@@ -4,7 +4,7 @@
 #
 
 from prioqueue import PrioQueue
-from vgraf import GraphVisualization
+#from vgraf import GraphVisualization
 from peta import MapV
 
 def euclideanDistance(a, b):
@@ -84,6 +84,20 @@ for i in range(n):
 map = MapV(listlat, listlon, nama)
 
 
+for i in range(n):
+    for j in range(n):
+        listlat = []
+        listlon = []
+        name = []
+        if (matrixjalan[i][j]):
+            listlat.append(listkoordinat[i][0])
+            listlat.append(listkoordinat[j][0])
+            listlon.append(listkoordinat[i][1])
+            listlon.append(listkoordinat[j][1])
+            name.append(nama[i])
+            name.append(nama[j])
+            map.tambahjalur(listlat, listlon, name)
+
 #input node awal dan akhir
 print("Pilihan Node: ")
 for i in nama:
@@ -97,7 +111,15 @@ while(1):
         print()
     else:
         break
+nwal = [entry]
+latawal = [listkoordinat[nama.index(entry)][0]]
+lonawal = [listkoordinat[nama.index(entry)][1]]
+nakhir = [target]
+latakhir = [listkoordinat[nama.index(target)][0]]
+lonakhir = [listkoordinat[nama.index(target)][1]]
 
+map.tambahAwal(latawal, lonawal, nwal)
+map.tambahAkhir(latakhir, lonakhir, nakhir)
 #Mulai algo
 kawal = nama.index(entry)
 ktujuan = nama.index(target)
@@ -123,11 +145,14 @@ hasil = popped[2]
 distance = popped[1]
 listlathasil = []
 listlonhasil = []
+namahasil = []
 for i in range(len(hasil)):
     idxhasil = nama.index(hasil[i])
     listlathasil.append(listkoordinat[idxhasil][0])
     listlonhasil.append(listkoordinat[idxhasil][1])
-map.tambahjalur(listlathasil,listlonhasil)
+    namahasil.append(nama[idxhasil])
+
+map.tambahjalurhasil(listlathasil,listlonhasil, hasil)
 
 #output dari node ke node
 print("Jalur (node):")

@@ -7,7 +7,7 @@ if __name__ == '__main__':
             lat=['46.181', '44.457', '45.794'],
             lon=['21.312', '26.093', '24.128'],
             mode='markers',
-            marker=go.scattermapbox.Marker(size=14),
+            marker=go.scattermapbox.Marker(size=14, color= 'purple'),
             text = ['Arad', 'Bucharest', 'Sibiu']
         ))
     fig.update_layout(
@@ -27,7 +27,8 @@ if __name__ == '__main__':
         mode = "lines",
         lat = ['46.181', '44.457'],
         lon = ['21.312', '26.093'],
-        marker = {'size': 10}))
+        line = dict(color = 'LightSkyBlue', width = 12)))
+
 
 
 
@@ -40,15 +41,66 @@ class MapV:
         lat=a,
         lon=b,
         mode='markers',
-        marker=go.scattermapbox.Marker(size=14),
-        text = c
+        marker= dict(color = 'black', size = 14),
+        text = c,
+        name = "Simpul"
         ))
-    def tambahjalur(self, jalurlat, jalurlon):
+        self.count = 0
+
+    def tambahAwal(self, latawal, lonawal, nawal):
+        self.map.add_trace(go.Scattermapbox(
+            mode = "markers",
+            lat = latawal,
+            lon = lonawal,
+            marker = dict(color = 'LightSkyBlue', size = 16),
+            text = nawal,
+            name = "Awal"
+            ))
+
+    def tambahAkhir(self, latakhir, lonakhir, nakhir):
+        self.map.add_trace(go.Scattermapbox(
+            mode = "markers",
+            lat = latakhir,
+            lon = lonakhir,
+            marker = dict(color = 'purple', size = 16),
+            text = nakhir,
+            name = "Akhir"
+            ))
+
+    def tambahjalur(self, jalurlat, jalurlon, name):
+        if (self.count > 0):
+            self.map.add_trace(go.Scattermapbox(
+            mode = "lines",
+            lat = jalurlat,
+            lon = jalurlon,
+            line = dict(color = 'black', width = 2),
+            text = name,
+            legendgroup="a",
+            name = "Jalur",
+            showlegend = False
+            ))
+        else:
+            self.map.add_trace(go.Scattermapbox(
+            mode = "lines",
+            lat = jalurlat,
+            lon = jalurlon,
+            line = dict(color = 'black', width = 2),
+            text = name,
+            legendgroup="a",
+            name = "jalur"
+            ))
+        self.count +=1
+
+    def tambahjalurhasil(self, jalurlat, jalurlon, hasil):
         self.map.add_trace(go.Scattermapbox(
         mode = "lines",
         lat = jalurlat,
         lon = jalurlon,
-        marker = {'size': 10}))
+        line = dict(color = 'red', width = 4),
+        name = "Jalur terdekat",
+        text = hasil
+        ))
+
     def visualize(self):
         self.map.update_layout(
         hovermode='closest',
