@@ -5,6 +5,7 @@
 
 from prioqueue import PrioQueue
 from vgraf import GraphVisualization
+from peta import MapV
 
 def euclideanDistance(a, b):
     return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**0.5
@@ -65,7 +66,7 @@ for i in range(n):
         matrixgeo[i][j] = euclideanDistance(listkoordinat[i], listkoordinat[j])
 
 #list[prediksi, sejauhini, path, nama]
-
+'''
 #coba2 gambar graf
 #Gambar graf
 graf = GraphVisualization()
@@ -74,6 +75,14 @@ for i in range(n):
         if (matrixjalan[i][j]):
             graf.addEdge(nama[i], nama[j], matrixgeo[i][j])
 graf.visualize()
+'''
+listlat = []
+listlon = []
+for i in range(n):
+    listlat.append(listkoordinat[i][0])
+    listlon.append(listkoordinat[i][1])
+map = MapV(listlat, listlon, nama)
+
 
 #input node awal dan akhir
 print("Pilihan Node: ")
@@ -112,6 +121,13 @@ while not listjalan.isEmpty():
             listjalan.enqueue(grup)
 hasil = popped[2]
 distance = popped[1]
+listlathasil = []
+listlonhasil = []
+for i in range(len(hasil)):
+    idxhasil = nama.index(hasil[i])
+    listlathasil.append(listkoordinat[idxhasil][0])
+    listlonhasil.append(listkoordinat[idxhasil][1])
+map.tambahjalur(listlathasil,listlonhasil)
 
 #output dari node ke node
 print("Jalur (node):")
@@ -121,6 +137,8 @@ for i in hasil:
     else:
         print(i, end = "-")
 print("Panjang jalur:" , '{0:.3g}'.format(distance))
+
+map.visualize()
 
 '''#output node-sisi-node-dst
 print()
@@ -135,4 +153,4 @@ for i in range(len(hasil) - 1):
 print(hasil[i+1])
 print("Panjang jalur:" , distance)'''
 
-graf.keep()
+#graf.keep()
