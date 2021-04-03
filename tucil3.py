@@ -138,4 +138,4 @@ for i in hasil:
         print(i, end = "-")
 print("Panjang jalur:", distance, "km")
 
-map.visualize() #panggil map
+map.visualize(latawal[0], lonawal[0]) #panggil map dengan center mengarah ke simpul awal
