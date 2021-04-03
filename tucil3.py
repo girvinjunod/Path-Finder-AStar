@@ -7,7 +7,7 @@ from prioqueue import PrioQueue
 from peta import MapV
 from haversine import haversineDistance
 
-def euclideanDistance(a, b):
+def euclideanDistance(a, b): #gak dipake karena pakai koordinat bumi, jadi ga bisa euclidean karena bumi ga datar
     return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**0.5
 
 #input file
