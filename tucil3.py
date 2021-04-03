@@ -68,8 +68,7 @@ for i in range(n):
 #input node awal dan akhir
 print("Pilihan Node: ")
 for i in nama:
-    print(i, end=" ")
-print()
+    print(i)
 while(1):
     entry = input("Masukkan node awal: ")
     target = input("Masukkan node target: ")
