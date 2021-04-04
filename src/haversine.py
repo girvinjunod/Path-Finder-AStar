@@ -25,4 +25,7 @@ def haversineDistance(koor1, koor2):
 if __name__ == '__main__':
     a  = (44.457, 26.093) 
     b = (46.181, 21.312)
-    print(haversineDistance(a,b))
+    c = (-6.176716476545919, 106.98596393874463)
+    d = (-6.176767387686766, 106.98672068536122)
+    r = haversineDistance(c,d)
+    print(('%.5f' % r).rstrip('0').rstrip('.') + ' km')

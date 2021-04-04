@@ -81,7 +81,7 @@ class MapV:
                 lon= lonawal
             ),
             pitch=0,
-            zoom=5
+            zoom= 15
             )
         )
         self.map.show()
