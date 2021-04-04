@@ -145,9 +145,10 @@ if found: #ada jalur
         else:
             print(i, end = "-")
     print("Panjang jalur:", distance, "km")
+    print("Menampilkan map di browser Anda...")
     distanceformat = ('%.5f' % distance).rstrip('0').rstrip('.') #buat jadi maks 5 angka dibelakang koma
     map.visualize(latawal[0], lonawal[0],('Peta Jalur Terdekat (' + entry + ' - ' +target + ': ' + distanceformat + ' km)')) #panggil map dengan center mengarah ke simpul awal
 else: #tidak ada jalur
     print("Tidak ada jalur")
+    print("Menampilkan map di browser Anda...")
     map.visualize(latawal[0], lonawal[0],'Tidak ada jalur antara kedua simpul (' + entry + ' - ' + target + ')') #panggil map dengan tidak ada solusi
-
