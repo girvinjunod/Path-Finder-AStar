@@ -15,7 +15,7 @@ def haversineDistance(koor1, koor2):
     #fungsi haversine -> hav(x) = sin(x/2)**2
     #hav(Θ) = hav(lat2-lat1) + cos(lat1)cos(lat2)hav(lon2-lon1)
     #Θ = d/r, r = radius, d = distance
-    #d = 2*radiusbumi * arcsin(hav(Θ))**0.5
+    #d = 2*radiusbumi * arcsin(hav(Θ)**0.5)
     hav = (sin(radlat / 2))**2 + cos(lat1 * rad) * cos(lat2 * rad) * (sin(radlon / 2))**2
     d = 2*radiusbumi * asin(hav**0.5)
 

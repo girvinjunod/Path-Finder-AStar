@@ -69,10 +69,10 @@ class MapV:
         text = hasil
         ))
 
-    def visualize(self, latawal, lonawal): #gambar map dengan center simpul awal
+    def visualize(self, latawal, lonawal, judul): #gambar map dengan center simpul awal
         self.map.update_layout(
         hovermode='closest',
-        title = 'Peta Jalur Terdekat',
+        title = judul,
         mapbox=dict(
             accesstoken=self.mapbox_access_token,
             bearing=0,

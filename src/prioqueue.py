@@ -24,3 +24,14 @@ class PrioQueue:
         pilihmin = self.prioqueue[min]
         del self.prioqueue[min]
         return pilihmin
+
+#driver 
+if __name__ == '__main__':
+    #list[estimasi, sejauhini, path, nama]
+    tes = PrioQueue()
+    tes.enqueue([200, 100, ['a', 'b'], 'b'])
+    tes.enqueue([150, 0, ['a'], 'a'])
+    tes.enqueue([300, 100, ['a', 'b'], 'b'])
+    while not tes.isEmpty():
+        a = tes.dequeue()
+        print(a)
