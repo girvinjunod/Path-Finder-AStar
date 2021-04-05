@@ -5,7 +5,7 @@ class PrioQueue:
 
     #buat print prioqueue
     def __str__(self):
-        return ' '.join([str(i) for i in self.prioqueue])
+        return ','.join([str(i) for i in self.prioqueue])
 
 	# cek kosong
     def isEmpty(self):
@@ -32,6 +32,7 @@ if __name__ == '__main__':
     tes.enqueue([200, 100, ['a', 'b'], 'b'])
     tes.enqueue([150, 0, ['a'], 'a'])
     tes.enqueue([300, 100, ['a', 'b'], 'b'])
+    print(tes)
     while not tes.isEmpty():
         a = tes.dequeue()
         print(a)

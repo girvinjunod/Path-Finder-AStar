@@ -14,6 +14,9 @@ class MapV:
         name = "Simpul"
         ))
         self.count = 0
+    
+    def __str__(self): #untuk print(peta)
+        return 'ini peta'
 
     def tambahAwal(self, latawal, lonawal, nawal): #tambah simpul awal
         self.map.add_trace(go.Scattermapbox(
@@ -88,32 +91,7 @@ class MapV:
 
 #driver
 if __name__ == '__main__':
-    mapbox_access_token = 'pk.eyJ1IjoiZ2lydmluanVub2QiLCJhIjoiY2tuMDB6ZmFyMGpjOTJubW82ZWJ3em1heCJ9.k5m3PeaIZjpWBM1QUAKeNQ'
-
-    fig = go.Figure(go.Scattermapbox(
-            lat=['46.181', '44.457', '45.794'],
-            lon=['21.312', '26.093', '24.128'],
-            mode='markers',
-            marker=go.scattermapbox.Marker(size=14, color= 'purple'),
-            text = ['Arad', 'Bucharest', 'Sibiu']
-        ))
-    fig.update_layout(
-        hovermode='closest',
-        mapbox=dict(
-            accesstoken=mapbox_access_token,
-            bearing=0,
-            center=go.layout.mapbox.Center(
-                lat=44,
-                lon=26
-            ),
-            pitch=0,
-            zoom=5
-        )
-    )
-    fig.add_trace(go.Scattermapbox(
-        mode = "lines",
-        lat = ['46.181', '44.457'],
-        lon = ['21.312', '26.093'],
-        line = dict(color = 'LightSkyBlue', width = 12)))
-
-    fig.show()
+    a = MapV([46.181, 44.457, 45.794], [21.312, 26.093, 24.128], ['Arad', 'Bucharest', 'Sibiu'])
+    print(a)
+    a.tambahjalur([46.181, 44.457],[21.312, 26.093], ['tes'] )
+    a.visualize(46.181, 21.312, 'tes')
