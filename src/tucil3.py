@@ -1,7 +1,7 @@
 #Tucil Stima 3
 
 #Girvin Junod 13519096 K02
-#
+#Hera Shafira 13519131 K03
 
 import os
 from pathlib import Path

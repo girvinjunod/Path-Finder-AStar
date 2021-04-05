@@ -11,7 +11,7 @@ from haversine import haversineDistance
 
 def euclideanDistance(a, b): #gak dipake karena pakai koordinat bumi, jadi ga bisa euclidean karena bumi ga datar
     return ((a[0] - b[0])**2 + (a[1] - b[1])**2)**0.5
-def inputfile(namafile):
+def parsefile(namafile):
     #input file
     filepath = os.path.dirname(Path(__file__).absolute().parent)
     namafile1 = os.path.join(filepath, 'test', namafile)
@@ -160,8 +160,8 @@ def output(popped, found, listkoordinat, matrixjalan, nama, entry, target):
 
 
 #main
-namafile = input("Nama file: ")
-nama, matrixjalan, matrixgeo, listkoordinat = inputfile(namafile)
-entry, target = inputnode(nama)
-popped, found = astar(nama, matrixjalan, matrixgeo,listkoordinat, entry, target)
-output(popped, found, listkoordinat, matrixjalan, nama, entry, target)
+namafile = input("Nama file: ") #input file
+nama, matrixjalan, matrixgeo, listkoordinat = parsefile(namafile) #parse input
+entry, target = inputnode(nama) #isi input node awal dan akhir
+popped, found = astar(nama, matrixjalan, matrixgeo,listkoordinat, entry, target) #algo astar
+output(popped, found, listkoordinat, matrixjalan, nama, entry, target) #output, diprint dan di map
