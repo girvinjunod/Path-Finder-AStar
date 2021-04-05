@@ -25,18 +25,18 @@ matrixjalan = []
 n = int(read[0])
 #liat format di txt
 for i in range(1, n+1):
-    idxpostnama = read[i].index("-")
-    nama.append(read[i][0:idxpostnama-1])
+    idxpostnama = read[i].index("-") #pisahin berdasarkan -
+    nama.append(read[i][0:idxpostnama-1]) #isi list nama
     read[i] = read[i].replace(" ", "") #hapus spasi
-    idxpostnama = read[i].index("-") + 1
-    read[i] = read[i][idxpostnama:]
-    templist = read[i].split(",")
-    listkoordinat.append((float(templist[0]), float(templist[1])))
-nexti = i+1
+    idxpostnama = read[i].index("-") + 1 #ambil indeks koordinat
+    read[i] = read[i][idxpostnama:] #jadi koordinat aj
+    templist = read[i].split(",") #pisahin berdasarkan koma
+    listkoordinat.append((float(templist[0]), float(templist[1]))) #dibuat jadi tuple dan dimasukin ke list
+nexti = i+1 #buat ngeliat matriks jalan di input
 for i in range(nexti, len(read)):
-    templist = read[i].split(" ")
+    templist = read[i].split(" ") #pisahin dari spasi
     for j in range(len(templist)):
-        templist[j] = int(templist[j])
+        templist[j] = int(templist[j]) #konversi input dari str ke int, biar jadi boolean
     matrixjalan.append(templist)
 
 #matrix buat jarak euclidean (jarak garis lurus antar simpul)
@@ -46,11 +46,12 @@ for i in range(n):
     for j in range(n):
         matrixgeo[i][j] = haversineDistance(listkoordinat[i], listkoordinat[j])
 
+#Isi latitude longitude buat map
 listlat = []
 listlon = []
 for i in range(n):
-    listlat.append(listkoordinat[i][0])
-    listlon.append(listkoordinat[i][1])
+    listlat.append(listkoordinat[i][0]) #list latitude
+    listlon.append(listkoordinat[i][1]) #list longitude
 #Buat map
 map = MapV(listlat, listlon, nama)
 
