@@ -30,3 +30,13 @@ def getter1():
 
 if __name__ == '__main__':
     app.run()
+
+def matrixadj(listedge, listnode):
+    matrixadj = [[0 for i in range(len(listnode))] for j in range(len(listnode))]
+    for i in listedge:
+        awal, akhir = i
+        idxawal = listnode.index(awal)
+        idxakhir = listnode.index(akhir)
+        matrixadj[idxawal][idxakhir] = 1
+        matrixadj[idxakhir][idxawal] = 1
+    return matrixadj
