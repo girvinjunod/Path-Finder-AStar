@@ -5,7 +5,7 @@
 		<p v-if="counterSelected>2">Kamu sudah memilih 2 titik</p>
 		<l-map style="height: 550px" :zoom="zoom" :center="center"  @click="onMapClick">
 			<l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-			<l-marker v-for="marker,index in markers" :lat-lng="marker" v-bind:key="index" @click="markerClick"></l-marker>
+			<l-marker v-for="marker,index in markers" :lat-lng="marker" :icon="iconNormal" v-bind:key="index" @click="markerClick"></l-marker>
 			<l-polyline v-for="elem,index in nodes" :lat-lngs="nodes" v-bind:key="index"></l-polyline>
 			<l-geosearch id="geosearch" :options="geosearchOptions"></l-geosearch>
 		</l-map>
@@ -24,15 +24,15 @@
     import json from '../node.json'
 	import { OpenStreetMapProvider } from 'leaflet-geosearch';
 	import LGeosearch from "vue2-leaflet-geosearch";
-    //import axios from 'axios';
 
 	delete L.Icon.Default.prototype._getIconUrl
-	L.Icon.Default.imagePath = ''
-	L.Icon.Default.mergeOptions({
-		iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-		iconUrl: require('leaflet/dist/images/marker-icon.png'),
-		shadowUrl: require('leaflet/dist/images/marker-shadow.png')
-	})
+	// L.Icon.Default.imagePath = ''
+	// L.Icon.Default.mergeOptions({
+	// 	iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+	// 	iconUrl: require('leaflet/dist/images/marker-icon.png'),
+	// 	shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+	// })
+
 	export default {
 		name: 'Openstreetmap',
 		components: {
@@ -57,7 +57,16 @@
 			newLng : 0, 
 			counter : 0,
 			counterSelected : 0,
-			icon: L.icon({iconUrl: "null",}),
+			iconNormal: L.icon({
+                iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png",
+                iconAnchor: [12, 41],
+                popupAnchor: [0, -41]
+            }),
+			iconAsal: L.icon({
+                iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+                iconAnchor: [12, 41],
+                popupAnchor: [0, -41]
+            }),
 			node:[],
 			nodes:[],
 			markers:[],
@@ -111,10 +120,11 @@
 					}
 				}
 				else{
-					if (this.counterSelected <= 2){
+					if (this.counterSelected < 2){
 						this.selected.push([e.latlng.lat,e.latlng.lng]);
-						this.counterSelected=this.counterSelected+1;
+                        e.target.setIcon(this.iconAsal);                        
 					}
+                    this.counterSelected=this.counterSelected+1;
 				}
 			},
 

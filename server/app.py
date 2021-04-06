@@ -21,11 +21,10 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 # sanity check route
 @app.route('/', methods=['GET','POST','DELETE'])
 @cross_origin(origin='*',headers=['Content-Type','Authorization'])
-def getter1():
+def getter():
     data = request.get_json()
     print(data["edges"])
     print(data["nodes"])
-
     return "yes"
 
 if __name__ == '__main__':
