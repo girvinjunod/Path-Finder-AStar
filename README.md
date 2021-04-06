@@ -16,7 +16,8 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 ## How to Run:
 
 #### Menjalankan non-bonus:
-- python src/normal.py
+- ketik dan enter `python src/normal.py` di terminal
+- Akan diprint hasil jalur dan jarak di terminal, lalu akan membuka tampilan peta di browser Anda (jika gagal konek ke server lokal coba jalankan lagi programnya)
 #### Menjalankan bonus:
 - ditambah nanti
 
