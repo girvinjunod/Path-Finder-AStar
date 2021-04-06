@@ -74,12 +74,24 @@ def astar2(entry,target, matrixjalan, matrixgeo,listkoordinat):
                 isipath.append(listkoordinat[i])
                 grup = [matrixgeo[i][idxtujuan] + sofar, sofar, isipath, listkoordinat[i]]
                 listjalan.enqueue(grup) #Masukkan ke prioqueue
-    return popped, found
+    listedge = []
+    if found:
+        jalan = popped[2]
+        jalan.reverse()
+        distance = popped[1]
+        for i in range(len(jalan) - 1):
+            listedge.append([jalan[i], jalan[i+1]])
+        return jalan, listedge, found, distance
+    return popped, listedge, found, 0
 namafile = 'bucharest.txt' #input file
 nama, matrixjalan, matrixgeo, listkoordinat = parsefile(namafile)
 entry = (44.457, 26.093)
 target = (46.181, 21.312)
-popped, found = astar2(entry, target, matrixjalan, matrixgeo, listkoordinat)
-print("Path:", popped[2])
-print("Distance:", popped[1], "km")
+hasil, listedge, found, distance = astar2(entry, target, matrixjalan, matrixgeo, listkoordinat)
+if found:
+    print("Edges:", listedge)
+    print("Path:", hasil)
+    print("Distance:", distance, "km")
+else:
+    print("G ada jalan weh")
 #matrixdistance = buatmatrixdistance(matrixjalan, listkoordinat)
