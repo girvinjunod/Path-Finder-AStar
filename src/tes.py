@@ -77,7 +77,6 @@ def astar2(entry,target, matrixjalan, matrixgeo,listkoordinat):
     listedge = []
     if found:
         jalan = popped[2]
-        jalan.reverse()
         distance = popped[1]
         for i in range(len(jalan) - 1):
             listedge.append([jalan[i], jalan[i+1]])
