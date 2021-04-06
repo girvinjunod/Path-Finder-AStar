@@ -1,4 +1,4 @@
-from math import pi,sqrt,sin,cos,atan2,asin
+from math import pi,sin,cos,asin
 def haversineDistance(koor1, koor2):
     #lengkapnya formulanya ada di https://en.wikipedia.org/wiki/Haversine_formula
     lat1 = koor1[0]

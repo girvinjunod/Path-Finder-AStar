@@ -47,17 +47,23 @@ def parsefile(namafile):
 
 def inputnode(nama):
     #input node awal dan akhir
-    print("Pilihan Node: ")
-    for i in nama:
-        print(i)
+    print("Pilihan Node (ketik nomor): ")
+    n = len(nama)
+    for i in range (n):
+        print(str(i+1) + ": " + nama[i])
     while(1):
-        entry = input("Masukkan node awal: ")
-        target = input("Masukkan node target: ")
-        if (entry not in nama or target not in nama):
+        try:
+            entry = int(input("Masukkan node awal: "))
+            target = int(input("Masukkan node target: "))
+            if (entry > n or entry < 1 or target > n or target < 1):
+                print("input invalid, please try again")
+                print()
+            else:
+                entry = nama[entry-1]
+                target = nama[target-1]
+                break
+        except:
             print("input invalid, please try again")
-            print()
-        else:
-            break
     return entry, target
 
 def astar(nama, matrixjalan, matrixgeo,listkoordinat, entry, target):
