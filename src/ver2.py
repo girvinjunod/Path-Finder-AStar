@@ -23,10 +23,10 @@ def parsefile(namafile):
     n = int(read[0])
     #liat format di txt
     for i in range(1, n+1):
-        idxpostnama = read[i].index("-") #pisahin berdasarkan -
+        idxpostnama = read[i].index("|") #pisahin berdasarkan -
         nama.append(read[i][0:idxpostnama-1]) #isi list nama
         read[i] = read[i].replace(" ", "") #hapus spasi
-        idxpostnama = read[i].index("-") + 1 #ambil indeks koordinat
+        idxpostnama = read[i].index("|") + 1 #ambil indeks koordinat
         read[i] = read[i][idxpostnama:] #jadi koordinat aj
         templist = read[i].split(",") #pisahin berdasarkan koma
         listkoordinat.append((float(templist[0]), float(templist[1]))) #dibuat jadi tuple dan dimasukin ke list
@@ -148,15 +148,15 @@ def output(popped, found, listkoordinat, matrixjalan, nama, entry, target):
             if i == target:
                 print(i)
             else:
-                print(i, end = "-")
+                print(i, end = " -> ")
         print("Panjang jalur:", distance, "km")
         print("Menampilkan map di browser Anda...")
         distanceformat = ('%.5f' % distance).rstrip('0').rstrip('.') #buat jadi maks 5 angka dibelakang koma
-        map.visualize(latawal[0], lonawal[0],('Peta Jalur Terdekat (' + entry + ' - ' +target + ': ' + distanceformat + ' km)')) #panggil map dengan center mengarah ke simpul awal
+        map.visualize(latawal[0], lonawal[0],('Peta Jalur Terdekat (' + entry + ' -> ' +target + ': ' + distanceformat + ' km)')) #panggil map dengan center mengarah ke simpul awal
     else: #tidak ada jalur
         print("Tidak ada jalur")
         print("Menampilkan map di browser Anda...")
-        map.visualize(latawal[0], lonawal[0],'Tidak ada jalur antara kedua simpul (' + entry + ' - ' + target + ')') #panggil map dengan tidak ada solusi
+        map.visualize(latawal[0], lonawal[0],'Tidak ada jalur antara kedua simpul (' + entry + ' -> ' + target + ')') #panggil map dengan tidak ada solusi
 
 
 #main
