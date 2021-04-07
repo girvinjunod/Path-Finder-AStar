@@ -22,7 +22,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 ## How to Run:
 
 #### Menjalankan non-bonus:
-- ketik dan enter `python src/normal.py` di terminal
+- jalankan `python src/normal.py` di terminal
 - Akan diprint hasil jalur dan jarak di terminal, lalu akan membuka tampilan peta di browser Anda (jika gagal konek ke server lokal coba jalankan lagi programnya)
 - Masukkan input nama file, pastikan file input ada di folder test
 - Masukkan input pilihan untuk node awal dan akhir untuk pencarian jalur
@@ -32,8 +32,8 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Masukkan command `yarn install` atau `npm install`
 - jalankan `npm run serve`
 - Terminal akan menampilkan link website lokal, misal `http://localhost:8080/`, klik link tersebut.
-- Buka terminal lain
-- Masukkan command `python src/server/app.py` di terminal lain
+- Buka terminal lain, pergi ke folder server dengan command cd
+- Masukkan command `python app.py` di terminal lain tersebut
 - Sekarang frontend dan backend sudah berhasil dinyalakan
 ##### Menggunakan web
 - Buat graf dengan membuat kumpulan sisi dengan mengklik node yang saling berhubungan
