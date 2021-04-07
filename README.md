@@ -14,9 +14,9 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 
 ### bonus
 - Nodejs, install dari https://nodejs.org/en/. Cek apakah sudah terinstall dengan `node -v` dan `npm -v`. Pastikan npm sudah versi latest dengan `npm install npm@latest -g`
-- Dependencies lain dapat diinstall dengan `yarn install`
+- Yarn, jika dipakai, install dengan `npm install --global yarn`
+- Dependencies lain dapat diinstall dengan `yarn install` atau `npm install` saat berada di directory frontend
 #### Library Python
-- pipenv
 - Flask, install dengan `pip install flask`. Cek apakah sudah terinstall dengan `pip show flask`
 
 ## How to Run:
@@ -29,14 +29,11 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 #### Menjalankan bonus:
 ##### Set-up
 - Pindah ke folder frontend dengan menjalankan `cd src/frontend`
-- Masukkan command `yarn install`
+- Masukkan command `yarn install` atau `npm install`
 - jalankan `npm run serve`
 - Terminal akan menampilkan link website lokal, misal `http://localhost:8080/`, klik link tersebut.
-- Pindah ke folder server dengan menjalankan `cd ../server`
-- Pastikan pipenv telah terinstall
-- Masukkan command `pipenv install`
-- Masuk ke dalam virtual environment dengan memasukkan command `env\Scripts\activate`
-- Masukkan command `python app.py`
+- Buka terminal lain
+- Masukkan command `python src/server/app.py` di terminal lain
 - Sekarang frontend dan backend sudah berhasil dinyalakan
 ##### Menggunakan web
 - Buat graf dengan membuat kumpulan sisi dengan mengklik node yang saling berhubungan
@@ -44,6 +41,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Pilih 2 titik sebagai titik asal dan tujuan pathfinding
 - Bila sudah, klik tombol `OK!`
 - Hasil pathfinding akan ditampilkan pada map dan jarak antar kedua titik pun akan ditampilkan
+- Untuk melakukan lagi, refresh website lokal
 
 ## Author:
 - Girvin Junod 13519096
