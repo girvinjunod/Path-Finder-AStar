@@ -47,14 +47,14 @@ def parsefile(namafile):
 
 def inputnode(nama):
     #input node awal dan akhir
-    print("Pilihan Node (ketik nomor): ")
+    print("Pilihan Node: ")
     n = len(nama)
     for i in range (n):
         print(str(i+1) + ": " + nama[i])
     while(1):
         try:
-            entry = int(input("Masukkan node awal: "))
-            target = int(input("Masukkan node target: "))
+            entry = int(input("Masukkan node awal (nomor): "))
+            target = int(input("Masukkan node target (nomor): "))
             if (entry > n or entry < 1 or target > n or target < 1):
                 print("input invalid, please try again")
                 print()

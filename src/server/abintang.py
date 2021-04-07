@@ -1,39 +1,6 @@
 from prioqueue import PrioQueue
 from haversine import haversineDistance
 
-
-def parsefile1(namafile):
-    #input file
-    f = open(namafile) #baca soal
-    read = f.read().split('\n') #dipisahkan dari newline
-    listkoordinat = []
-    nama = []
-    matrixjalan = []
-    n = int(read[0])
-    #liat format di txt
-    for i in range(1, n+1):
-        idxpostnama = read[i].index("|") #pisahin berdasarkan -
-        nama.append(read[i][0:idxpostnama-1]) #isi list nama
-        read[i] = read[i].replace(" ", "") #hapus spasi
-        idxpostnama = read[i].index("|") + 1 #ambil indeks koordinat
-        read[i] = read[i][idxpostnama:] #jadi koordinat aj
-        templist = read[i].split(",") #pisahin berdasarkan koma
-        listkoordinat.append((float(templist[0]), float(templist[1]))) #dibuat jadi tuple dan dimasukin ke list
-    nexti = i+1 #buat ngeliat matriks jalan di input
-    for i in range(nexti, len(read)):
-        templist = read[i].split(" ") #pisahin dari spasi
-        for j in range(len(templist)):
-            templist[j] = int(templist[j]) #konversi input dari str ke int, biar jadi boolean
-        matrixjalan.append(templist)
-
-    #matrix buat jarak euclidean (jarak garis lurus antar simpul)
-    #Sebenarnya karena bumi ga datar, pakai haversine formula buat jarak antar 2 simpul, ga euclidean
-    matrixgeo = [[0 for j in range(n)] for i in range(n)]
-    for i in range(n):
-        for j in range(n):
-            matrixgeo[i][j] = haversineDistance(listkoordinat[i], listkoordinat[j])
-    return nama, matrixjalan, matrixgeo, listkoordinat
-
 def buatmatrixdistance(matrixjalan, listkoordinat):
     n = len(matrixjalan)
     matrixgeo = [[0 for j in range(n)] for i in range(n)]
@@ -79,16 +46,3 @@ def astar2(entry,target, matrixjalan, matrixgeo,listkoordinat):
             listedge.append([jalan[i], jalan[i+1]])
         return jalan, listedge, found, distance
     return popped, listedge, found, 0
-if __name__ == '__main__':
-    namafile = 'bucharest.txt' #input file
-    nama, matrixjalan, matrixgeo, listkoordinat = parsefile1(namafile)
-    entry = (44.457, 26.093)
-    target = (46.181, 21.312)
-    hasil, listedge, found, distance = astar2(entry, target, matrixjalan, matrixgeo, listkoordinat)
-    if found:
-        print("Edges:", listedge)
-        print("Path:", hasil)
-        print("Distance:", distance, "km")
-    else:
-        print("G ada jalan weh")
-    #matrixdistance = buatmatrixdistance(matrixjalan, listkoordinat)
