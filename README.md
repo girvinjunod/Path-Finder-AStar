@@ -17,7 +17,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Yarn, jika dipakai, install dengan `npm install --global yarn`
 - Dependencies lain dapat diinstall dengan `yarn install` atau `npm install` saat berada di directory frontend
 - Flask (pada python), install dengan `pip install flask`. Cek apakah sudah terinstall dengan `pip show flask`
-- Flask_cors (pada python), install dengan `pip install flask_cors`
+- Flask_cors (pada python), install dengan `pip install flask_cors`. Cek apakah sudah terinstall dengan `pip show flask_cors`
 
 ## How to Run:
 
