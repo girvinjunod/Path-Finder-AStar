@@ -17,8 +17,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Vuejs, bisa diinstall dengan command `npm install -g @vue/cli`
 - Yarn, jika dipakai, install dengan `npm install --global yarn`
 - Dependencies lain dapat diinstall dengan `yarn install` atau `npm install` saat berada di directory frontend
-#### Library Python
-- Flask, install dengan `pip install flask`. Cek apakah sudah terinstall dengan `pip show flask`
+- Flask (pada python), install dengan `pip install flask`. Cek apakah sudah terinstall dengan `pip show flask`
 
 ## How to Run:
 
@@ -35,6 +34,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - jalankan `npm run serve`
 - Terminal akan menampilkan link website lokal, misal `http://localhost:8080/`, klik link tersebut.
 - Buka terminal lain, pergi ke folder server
+- Install flask dengan command `pip install flask`, apabila belum menginstall flask
 - Masukkan command `python app.py` di terminal lain tersebut
 - Sekarang frontend dan backend sudah berhasil dinyalakan
 #### Menggunakan web
