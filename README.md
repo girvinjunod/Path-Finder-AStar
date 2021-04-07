@@ -25,7 +25,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Masuk ke folder `src`
 - jalankan `python normal.py` di terminal
 - Akan diprint hasil jalur dan jarak di terminal, lalu akan membuka tampilan peta di browser Anda (jika gagal konek ke server lokal coba jalankan lagi programnya)
-- Masukkan input nama file, pastikan file input ada di folder test
+- Masukkan input nama file, pastikan file input ada di folder `test`
 - Masukkan input pilihan untuk node awal dan akhir untuk pencarian jalur
 ### Menjalankan bonus:
 #### Set-up
@@ -33,7 +33,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Masukkan command `yarn install` atau `npm install`
 - jalankan `npm run serve`
 - Terminal akan menampilkan link website lokal, misal `http://localhost:8080/`, klik link tersebut.
-- Buka terminal lain, pergi ke folder server
+- Buka terminal lain, pergi ke folder `server`
 - Install flask dengan command `pip install flask` dan install flask_cors dengan command `pip install flask_cors`, apabila belum menginstall flask dan flask_cors
 - Masukkan command `python app.py` di terminal lain tersebut
 - Sekarang frontend dan backend sudah berhasil dinyalakan
