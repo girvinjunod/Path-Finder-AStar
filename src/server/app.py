@@ -1,7 +1,6 @@
 from flask import Flask, flash, request, redirect, url_for, session,jsonify
 from flask.wrappers import Response
 from flask_cors import CORS, cross_origin
-from werkzeug.utils import secure_filename
 import json
 from abintang import buatmatrixdistance
 from abintang import astar2
@@ -31,12 +30,12 @@ def matrixadj(listedge, listnode):
         matrixadj[idxakhir][idxawal] = 1
     return matrixadj
 
+
+#POST method from client to server
 @app.route('/', methods=['GET','POST','DELETE'])
 @cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def getter():
     data = request.get_json()
-    # print(data["edges"])
-    # print(data["nodes"])
     bismillah = matrixadj(data["edges"], data["nodes"])
     matrixdistance = buatmatrixdistance(bismillah, data["nodes"])
     astar = astar2(data["selected"][0], data["selected"][1], bismillah, matrixdistance, data["nodes"])
