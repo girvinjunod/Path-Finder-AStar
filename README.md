@@ -14,7 +14,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 
 ### bonus
 - Nodejs, install dari https://nodejs.org/en/. Cek apakah sudah terinstall dengan `node -v` dan `npm -v`. Pastikan npm sudah versi latest dengan `npm install npm@latest -g`
-- Vuejs
+- Vuejs, bisa diinstall dengan command `npm install -g @vue/cli`
 - Yarn, jika dipakai, install dengan `npm install --global yarn`
 - Dependencies lain dapat diinstall dengan `yarn install` atau `npm install` saat berada di directory frontend
 #### Library Python
