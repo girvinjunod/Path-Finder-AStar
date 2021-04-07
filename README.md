@@ -14,8 +14,9 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 
 ### bonus
 - Nodejs, install dari https://nodejs.org/en/. Cek apakah sudah terinstall dengan `node -v` dan `npm -v`. Pastikan npm sudah versi latest dengan `npm install npm@latest -g`
-- Dependencies lain dapat diinstall dengan `npm install`
+- Dependencies lain dapat diinstall dengan `yarn install`
 #### Library Python
+- pipenv
 - Flask, install dengan `pip install flask`. Cek apakah sudah terinstall dengan `pip show flask`
 
 ## How to Run:
@@ -26,14 +27,23 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Masukkan input nama file, pastikan file input ada di folder test
 - Masukkan input pilihan untuk node awal dan akhir untuk pencarian jalur
 #### Menjalankan bonus:
-- Pastikan semua dependencies sudah terinstall
-- jalankan `cd src/frontend`
+##### Set-up
+- Pindah ke folder frontend dengan menjalankan `cd src/frontend`
+- Masukkan command `yarn install`
 - jalankan `npm run serve`
-- Akan ditunjukkan di terminal letak program di suatu server, pergi ke salah satu pilihannya. Misal `http://localhost:8080/`
-- Klik titik di map untuk membuat node, klik dua titik untuk membuat suatu sisi antar node
-- Klik tombol 'x' untuk berhenti membuat graf
-- Klik 2 node sebagai node awal dan akhir pencarian jalur
-- Klik tombol 'x' untuk menunjukkan jalur terpendek antara dua node itu dan jaraknya
+- Terminal akan menampilkan link website lokal, misal `http://localhost:8080/`, klik link tersebut.
+- Pindah ke folder server dengan menjalankan `cd ../server`
+- Pastikan pipenv telah terinstall
+- Masukkan command `pipenv install`
+- Masuk ke dalam virtual environment dengan memasukkan command `env\Scripts\activate`
+- Masukkan command `python app.py`
+- Sekarang frontend dan backend sudah berhasil dinyalakan
+##### Menggunakan web
+- Buat graf dengan membuat kumpulan sisi dengan mengklik node yang saling berhubungan
+- Bila sudah selesai membuat graf, klik tombol `selesai membuat graf`
+- Pilih 2 titik sebagai titik asal dan tujuan pathfinding
+- Bila sudah, klik tombol `OK!`
+- Hasil pathfinding akan ditampilkan pada map dan jarak antar kedua titik pun akan ditampilkan
 
 ## Author:
 - Girvin Junod 13519096
