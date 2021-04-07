@@ -17,6 +17,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - Yarn, jika dipakai, install dengan `npm install --global yarn`
 - Dependencies lain dapat diinstall dengan `yarn install` atau `npm install` saat berada di directory frontend
 - Flask (pada python), install dengan `pip install flask`. Cek apakah sudah terinstall dengan `pip show flask`
+- Flask_cors (pada python), install dengan `pip install flask_cors`
 
 ## How to Run:
 
@@ -33,7 +34,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 - jalankan `npm run serve`
 - Terminal akan menampilkan link website lokal, misal `http://localhost:8080/`, klik link tersebut.
 - Buka terminal lain, pergi ke folder server
-- Install flask dengan command `pip install flask`, apabila belum menginstall flask
+- Install flask dengan command `pip install flask` dan install flask_cors dengan command `pip install flask_cors`, apabila belum menginstall flask dan flask_cors
 - Masukkan command `python app.py` di terminal lain tersebut
 - Sekarang frontend dan backend sudah berhasil dinyalakan
 #### Menggunakan web
