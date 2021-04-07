@@ -14,6 +14,7 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 
 ### bonus
 - Nodejs, install dari https://nodejs.org/en/. Cek apakah sudah terinstall dengan `node -v` dan `npm -v`. Pastikan npm sudah versi latest dengan `npm install npm@latest -g`
+- Vuejs
 - Yarn, jika dipakai, install dengan `npm install --global yarn`
 - Dependencies lain dapat diinstall dengan `yarn install` atau `npm install` saat berada di directory frontend
 #### Library Python
@@ -21,22 +22,23 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 
 ## How to Run:
 
-#### Menjalankan non-bonus:
-- jalankan `python src/normal.py` di terminal
+### Menjalankan non-bonus:
+- Masuk ke folder `src`
+- jalankan `python normal.py` di terminal
 - Akan diprint hasil jalur dan jarak di terminal, lalu akan membuka tampilan peta di browser Anda (jika gagal konek ke server lokal coba jalankan lagi programnya)
 - Masukkan input nama file, pastikan file input ada di folder test
 - Masukkan input pilihan untuk node awal dan akhir untuk pencarian jalur
-#### Menjalankan bonus:
-##### Set-up
+### Menjalankan bonus:
+#### Set-up
 - Pindah ke folder frontend dengan menjalankan `cd src/frontend`
 - Masukkan command `yarn install` atau `npm install`
 - jalankan `npm run serve`
 - Terminal akan menampilkan link website lokal, misal `http://localhost:8080/`, klik link tersebut.
-- Buka terminal lain, pergi ke folder server dengan command cd
+- Buka terminal lain, pergi ke folder server
 - Masukkan command `python app.py` di terminal lain tersebut
 - Sekarang frontend dan backend sudah berhasil dinyalakan
-##### Menggunakan web
-- Buat graf dengan membuat kumpulan sisi dengan mengklik node yang saling berhubungan
+#### Menggunakan web
+- Graf dibuat dengan membuat kumpulan sisi dengan mengklik dua titik yang berhubungan
 - Bila sudah selesai membuat graf, klik tombol `selesai membuat graf`
 - Pilih 2 titik sebagai titik asal dan tujuan pathfinding
 - Bila sudah, klik tombol `OK!`
@@ -46,3 +48,6 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 ## Author:
 - Girvin Junod 13519096
 - Hera Shafira 13519131
+
+## Disclaimer:
+Bila menemukan kesulitan dalam menjalankan program harap hubungi id line : herash
