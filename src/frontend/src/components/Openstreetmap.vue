@@ -5,6 +5,7 @@
 		<p class="title">Stimap</p>
 		<button class="done" @click="isClickedB=true">Selesai membuat graf</button>
         <button class="send" @click="sendList()">OK!</button>
+		<p v-if="counterSelected<=2 && isClickedB==true">Pilih 2 titik!</p>
 		<p v-if="counterSelected>2">Kamu sudah memilih 2 titik</p>
         <p v-if="cost!=0">Jarak : {{cost}} km</p>
         <p v-if="isFound==false">Kedua titik tidak berhubungan</p>

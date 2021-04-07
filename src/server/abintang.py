@@ -1,12 +1,10 @@
 from prioqueue import PrioQueue
 from haversine import haversineDistance
-import os
-from pathlib import Path
-def parsefile(namafile):
+
+
+def parsefile1(namafile):
     #input file
-    filepath = os.path.dirname(Path(__file__).absolute().parent)
-    namafile1 = os.path.join(filepath, 'test', namafile)
-    f = open(namafile1) #baca soal
+    f = open(namafile) #baca soal
     read = f.read().split('\n') #dipisahkan dari newline
     listkoordinat = []
     nama = []
@@ -81,15 +79,16 @@ def astar2(entry,target, matrixjalan, matrixgeo,listkoordinat):
             listedge.append([jalan[i], jalan[i+1]])
         return jalan, listedge, found, distance
     return popped, listedge, found, 0
-namafile = 'bucharest.txt' #input file
-nama, matrixjalan, matrixgeo, listkoordinat = parsefile(namafile)
-entry = (44.457, 26.093)
-target = (46.181, 21.312)
-hasil, listedge, found, distance = astar2(entry, target, matrixjalan, matrixgeo, listkoordinat)
-if found:
-    print("Edges:", listedge)
-    print("Path:", hasil)
-    print("Distance:", distance, "km")
-else:
-    print("G ada jalan weh")
-#matrixdistance = buatmatrixdistance(matrixjalan, listkoordinat)
+if __name__ == '__main__':
+    namafile = 'bucharest.txt' #input file
+    nama, matrixjalan, matrixgeo, listkoordinat = parsefile1(namafile)
+    entry = (44.457, 26.093)
+    target = (46.181, 21.312)
+    hasil, listedge, found, distance = astar2(entry, target, matrixjalan, matrixgeo, listkoordinat)
+    if found:
+        print("Edges:", listedge)
+        print("Path:", hasil)
+        print("Distance:", distance, "km")
+    else:
+        print("G ada jalan weh")
+    #matrixdistance = buatmatrixdistance(matrixjalan, listkoordinat)

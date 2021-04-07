@@ -3,7 +3,7 @@ from flask.wrappers import Response
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 import json
-from tes import *
+from abintang import *
 
 
 
