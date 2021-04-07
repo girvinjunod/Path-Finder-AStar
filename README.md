@@ -9,7 +9,6 @@ untuk dicari jalur terdekatnya dan program akan menampilkannya di peta serta jar
 ## Dependencies
 - Python 3.8.8 (Dicoba di versi ini, versi lain bisa jadi tidak bisa)
 ### non-bonus
-#### Library Python
 - plotly, install dengan `pip install plotly`. Cek apakah sudah terinstall dengan `pip show plotly`
 
 ### bonus
